@@ -1,7 +1,6 @@
 void GetGPS()
 {
   //float flat, flon; //pulled out and put in Main
-  float falt = gps.f_altitude();  //gets +/-altitude in meters
   unsigned long age, date, time, chars = 0;
   unsigned short sentences = 0, failed = 0;
   static const double LONDON_LAT = 51.508131, LONDON_LON = -0.128002;
@@ -9,7 +8,8 @@ void GetGPS()
   print_int(gps.satellites(), TinyGPS::GPS_INVALID_SATELLITES, 5);
   print_int(gps.hdop(), TinyGPS::GPS_INVALID_HDOP, 5);
   gps.f_get_position(&flat, &flon, &age);
-    
+  falt = gps.f_altitude();  //gets +/-altitude in meters
+
   print_float(flat, TinyGPS::GPS_INVALID_F_ANGLE, 10, 6);
   print_float(flon, TinyGPS::GPS_INVALID_F_ANGLE, 11, 6);
   print_int(age, TinyGPS::GPS_INVALID_AGE, 5);
