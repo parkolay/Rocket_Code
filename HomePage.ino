@@ -6,8 +6,7 @@ void get_homepage(int ch_id)
   String content = "";
   content += "<!DOCTYPE html>";
   content += "<html>";
-  content += "<head>";
-  content += "<h1><font color=#dddddd> DanNet Web Server</h1>";
+  content += "<h1><font color=#dddddd> DanNet Web Server &nbsp;<a href=\"?about\"><button style=height:50px;width:100px;margin:10px><h>About</h></button></a></h1>";
   content += "<title>Teensy3.1-ESP8266 Wi-Fi Analog pin 0</title>";
   content += " <h1> <font color=#dddddd> TEENSY 3.1 </font> </h1>";
   content += " <p> <font color=#ff66ff> ESP8266 Wireless Webserver </font> </p>";
@@ -35,7 +34,6 @@ void get_homepage(int ch_id)
 
   //HTML buttons
   content += "<h6>Toggle <a href=\"?toggle\"><button style=height:150px;width:200px;margin:50px><h1>PRESS</br>ME</h></button></a>&nbsp;Position <a href=\"?GPS\"><button style=height:150px;width:200px;margin:50px><h1>Get</br>GPS</h></button></a></h6>";
-  //content += "";
   content += "<h6>PIN_13 <a href=\"?pin=ON1\"><button style=height:100px;width:200px;margin:10px><h1>ON</button></a>&nbsp;<a href=\"?pin=OFF1\"><button style=height:100px;width:200px;margin:10px><h1>OFF</button></a></h6>";
   content += "<h6>GPIO2 <a href=\"?pin=ON2\"><button style=dsiplay:none;height:100px;width:200px;margin:10px><h1>ON</button></a>&nbsp;<a href=\"?pin=OFF2\"><button style=height:100px;width:200px;margin:10px><h1>OFF</button></a></h6>";
   content += "<button style=visibility:hidden;height:100px;width:200px;margin:50px><h1>NO</br>PRESS</br>ME</h></button>";     //hide a button
