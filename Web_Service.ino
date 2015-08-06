@@ -97,15 +97,19 @@ void ParseWeb()
         if (strncmp(pb, "GET /?GPS", 9) == 0) //compare the read buffer to "GET /?pin=ON1" when adding new msg don't forget to change #or chars.
         { //normally would not want multiple ftn controlling same pin
           wait_for_esp_response(1000);              //toggle state
-
-          GetGPS();                               //get GPS info
-          get_homepage(ch_id);                    //update homepage
+          GetGPS();                                //get GPS info
+          get_homepage(ch_id);                     //update homepage
+        }
+        
+        if (strncmp(pb, "GET /?about", 11) == 0) //compare the read buffer to "GET /?pin=ON1" when adding new msg don't forget to change #or chars.
+        { //normally would not want multiple ftn controlling same pin
+          wait_for_esp_response(1000);              //toggle state
+          get_aboutpage(ch_id);                     //update homepage
         }
 
         if (strncmp(pb, "GET /?toggle", 12) == 0)   //compare the read buffer to "GET /?toggle"
         { //this is not a good way to do this, a refresh can toggle the state of the pin
           wait_for_esp_response(1000);              //toggle state
-
           //toggle != toggle;                       //toggle state-->system didn't like this way
 
           if (toggle == false)
@@ -129,7 +133,14 @@ void ParseWeb()
           digitalWrite(ledPin, LOW);                //set output to state
           get_homepage(ch_id);                    //update homepage
         }
-
+        
+        if (strncmp(pb, "GET /?home", 10) == 0)
+        {
+          wait_for_esp_response(1000);
+          Serial.println("-> serving homepage");
+          get_homepage(ch_id);
+        }
+        
         if (strncmp(pb, "GET /", 5) == 0)
         {
           wait_for_esp_response(1000);
